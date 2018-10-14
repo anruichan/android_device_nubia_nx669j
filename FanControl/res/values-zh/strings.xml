@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 The Mokee Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="advanced_settings">扩展</string>
+    <string name="advanced_settings_summary">附加高级设置</string>
+    <string name="fancontrol_title">风扇控制</string>
+    <string name="fanspeed_switch_title">风扇速度切换</string>
+    <string name="fan_off_item">风扇关闭</string>
+    <string name="fan_level_1_item">等级 1</string>
+    <string name="fan_level_2_item">等级 2</string>
+    <string name="fan_level_3_item">等级 3</string>
+    <string name="fan_level_4_item">等级 4</string>
+    <string name="fan_level_5_item">等级 5</string>
+</resources>

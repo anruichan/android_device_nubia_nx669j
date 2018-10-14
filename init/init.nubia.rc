@@ -441,6 +441,37 @@ on property:vendor.post_boot.parsed=1
     write /proc/irq/243/smp_affinity_list 2
     write /proc/irq/240/smp_affinity_list 1
 
+
+# Off
+on property:persist.sys.fan.speed.level=off
+    write /sys/kernel/fan/fan_enable "0"
+    write /sys/kernel/fan/fan_speed_level "0"
+
+# Level 1
+on property:persist.sys.fan.speed.level=lv1
+    write /sys/kernel/fan/fan_enable "1"
+    write /sys/kernel/fan/fan_speed_level "1"
+
+# Level 2
+on property:persist.sys.fan.speed.level=lv2
+    write /sys/kernel/fan/fan_enable "1"
+    write /sys/kernel/fan/fan_speed_level "2"
+
+# Level 3
+on property:persist.sys.fan.speed.level=lv3
+    write /sys/kernel/fan/fan_enable "1"
+    write /sys/kernel/fan/fan_speed_level "3"
+
+# Level 4
+on property:persist.sys.fan.speed.level=lv4
+    write /sys/kernel/fan/fan_enable "1"
+    write /sys/kernel/fan/fan_speed_level "4"
+
+# Level 5
+on property:persist.sys.fan.speed.level=lv5
+    write /sys/kernel/fan/fan_enable "1"
+    write /sys/kernel/fan/fan_speed_level "5"
+
 service vendor.sensors-hal-2-0-multihal /vendor/bin/hw/android.hardware.sensors@2.0-service.multihal
     override
     class hal

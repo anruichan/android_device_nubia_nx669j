@@ -175,6 +175,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@4.0.vendor \
     vendor.qti.hardware.memtrack-service
 
+# FanControl
+PRODUCT_PACKAGES += \
+    FanControl
+
 # Fastboot
 PRODUCT_PACKAGES += \
     fastbootd
