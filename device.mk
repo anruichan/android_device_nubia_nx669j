@@ -188,9 +188,6 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@2.1.vendor \
     android.hardware.power@1.2.vendor
 
-# GSI
-$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
-
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
