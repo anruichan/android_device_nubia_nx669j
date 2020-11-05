@@ -58,7 +58,7 @@ function blob_fixup() {
 
     # Change soname for fingerprint.default.so.
     vendor/lib64/hw/fingerprint.lahaina.so)
-        patchelf --set-soname "fingerprint.lahaina.so" "${2}"
+        "${PATCHELF}" --set-soname "fingerprint.lahaina.so" "${2}"
         ;;
     esac
 }
