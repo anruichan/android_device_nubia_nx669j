@@ -31,6 +31,12 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int KEY_GAMESWITCH_ON = 250;
     private static final int KEY_GAMESWITCH_OFF = 251;
 
+    // Vibration effects
+    private static final VibrationEffect MODE_NORMAL_EFFECT =
+            VibrationEffect.createOneShot(250, VibrationEffect.DEFAULT_AMPLITUDE);
+    private static final VibrationEffect MODE_VIBRATION_EFFECT =
+            VibrationEffect.get(VibrationEffect.EFFECT_DOUBLE_CLICK);
+
     private final Context mContext;
     private final AudioManager mAudioManager;
     private final Vibrator mVibrator;
@@ -48,22 +54,22 @@ public class KeyHandler implements DeviceKeyHandler {
         switch (scanCode) {
             case KEY_GAMESWITCH_OFF:
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
+                doHapticFeedback(MODE_NORMAL_EFFECT);
                 break;
             case KEY_GAMESWITCH_ON:
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
+                doHapticFeedback(MODE_VIBRATION_EFFECT);
                 break;
             default:
                 return event;
         }
-        doHapticFeedback();
 
         return null;
     }
 
-    private void doHapticFeedback() {
+    private void doHapticFeedback(VibrationEffect effect) {
         if (mVibrator != null && mVibrator.hasVibrator()) {
-            mVibrator.vibrate(VibrationEffect.createOneShot(50,
-                    VibrationEffect.DEFAULT_AMPLITUDE));
+            mVibrator.vibrate(effect);
         }
     }
 }
