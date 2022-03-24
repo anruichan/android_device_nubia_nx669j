@@ -8,7 +8,7 @@
 $(call inherit-product, vendor/nubia/nx669j/nx669j-vendor.mk)
 
 # A/B
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
 PRODUCT_RO_FILE_SYSTEM ?= ext4
 
