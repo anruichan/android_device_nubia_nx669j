@@ -15,3 +15,6 @@ debug.sf.high_fps_late_sf_phase_offset_ns=-2000000
 
 # QC Value Addons
 ro.vendor.qti.va_odm.support=1
+
+# USB
+vendor.usb.product_string=Red Magic 6
