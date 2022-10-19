@@ -13,8 +13,8 @@ import android.view.KeyEvent
 import com.android.internal.os.DeviceKeyHandler
 
 class KeyHandler(context: Context) : DeviceKeyHandler {
-    private val audioManager = context.getSystemService(AudioManager::class.java)
-    private val vibrator = context.getSystemService(Vibrator::class.java)
+    private val audioManager = context.getSystemService(AudioManager::class.java)!!
+    private val vibrator = context.getSystemService(Vibrator::class.java)!!
 
     override fun handleKeyEvent(event: KeyEvent): KeyEvent {
         if (event.action == KeyEvent.ACTION_DOWN) {
