@@ -20,11 +20,11 @@ class KeyHandler(context: Context) : DeviceKeyHandler {
         if (event.action == KeyEvent.ACTION_DOWN) {
             when (event.scanCode) {
                 KEY_GAMESWITCH_OFF -> {
-                    audioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL)
+                    audioManager.ringerModeInternal = AudioManager.RINGER_MODE_NORMAL
                     vibrator.vibrate(MODE_NORMAL_EFFECT)
                 }
                 KEY_GAMESWITCH_ON -> {
-                    audioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT)
+                    audioManager.ringerModeInternal = AudioManager.RINGER_MODE_SILENT
                 }
             }
         }
