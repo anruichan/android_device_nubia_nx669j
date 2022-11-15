@@ -276,7 +276,6 @@ PRODUCT_PACKAGES += \
     NubiaFrameworks \
     NubiaLineageSDK \
     NubiaLineageSettings \
-    NubiaLineageSystemUI \
     NubiaSettings \
     NubiaSettingsProvider \
     NubiaSystemUI \
