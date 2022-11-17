@@ -126,6 +126,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.light-service.lineage \
+    init.qti.display_boot.rc \
+    init.qti.display_boot.sh \
     libmemutils \
     libqdMetaData.system \
     libsdmcore \
