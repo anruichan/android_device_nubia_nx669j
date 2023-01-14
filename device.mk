@@ -283,8 +283,7 @@ PRODUCT_PACKAGES += \
     NubiaSettings \
     NubiaSettingsProvider \
     NubiaSystemUI \
-    NubiaTelephony \
-    aptxalsOverlay
+    NubiaTelephony
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
