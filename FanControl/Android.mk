@@ -14,6 +14,10 @@ LOCAL_PRIVILEGED_MODULE := true
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 LOCAL_USE_AAPT2 := true
 
+LOCAL_OPTIONAL_USES_LIBRARIES := \
+    androidx.window.extensions \
+    androidx.window.sidecar
+
 package_resource_overlays := $(strip \
     $(wildcard $(foreach dir, $(PRODUCT_PACKAGE_OVERLAYS), \
       $(addprefix $(dir)/, packages/apps/FanControl/res))) \
