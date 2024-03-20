@@ -29,9 +29,6 @@ PRODUCT_PACKAGES += \
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
-# APEX
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 # Adreno
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
