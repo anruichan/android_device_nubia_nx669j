@@ -5,5 +5,9 @@ genfscon sysfs /devices/virtual/proximity                                       
 # Display
 genfscon sysfs /devices/platform/nubia_goodix_ts.0/gesture/enable                    u:object_r:vendor_proc_graphics:s0
 
+# USB
+genfscon sysfs /devices/platform/soc/soc:extcon_usb1/extcon/extcon3/cable.0/         u:object_r:sysfs_extcon:s0
+genfscon sysfs /devices/platform/soc/soc:extcon_usb1/extcon/extcon3/cable.1/         u:object_r:sysfs_extcon:s0
+
 # Vibrator
 genfscon sysfs /devices/platform/soc/88c000.i2c/i2c-7/7-005a                         u:object_r:sysfs_vibrator:s0
