@@ -216,6 +216,9 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+# Kernel
+PRODUCT_ENABLE_UFFD_GC := false
+
 # KeyHandler
 PRODUCT_PACKAGES += \
     KeyHandler
