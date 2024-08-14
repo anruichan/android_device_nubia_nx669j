@@ -38,7 +38,6 @@ module = ExtractUtilsModule(
     namespace_imports=namespace_imports,
     blob_fixups=blob_fixups,
     add_firmware_proprietary_file=True,
-    check_elf=False,
 )
 
 if __name__ == '__main__':
