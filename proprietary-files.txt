@@ -440,7 +440,7 @@ vendor/lib64/libcvpcpuRev_skel.so
 vendor/lib64/vendor.qti.hardware.cvp@1.0.so
 
 # Camera
-vendor/bin/hw/android.hardware.camera.provider@2.4-service_64;MODULE_SUFFIX=-vendor
+vendor/bin/hw/android.hardware.camera.provider@2.4-service_64;MODULE_SUFFIX=_vendor
 vendor/etc/camera/VfbTuningInterface.xml
 vendor/etc/camera/camxoverridesettings.txt
 vendor/etc/camera/vidhance_calibration
@@ -719,7 +719,7 @@ system_ext/lib64/vendor.qti.hardware.dpmservice@1.0.so
 system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
 vendor/bin/dpmQmiMgr
 vendor/etc/init/dpmQmiMgr.rc
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=-vendor
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libdpmqmihal.so
 
 # Data
@@ -767,7 +767,7 @@ vendor/etc/init/vendor.qti.diag.rc
 vendor/etc/vintf/manifest/vendor.qti.diag.hal.service.xml
 vendor/lib/libdiag.so
 vendor/lib64/libdiag.so
-vendor/lib64/vendor.qti.diaghal@1.0.so;MODULE_SUFFIX=-vendor
+vendor/lib64/vendor.qti.diaghal@1.0.so;MODULE_SUFFIX=_vendor
 
 # Display
 vendor/etc/snapdragon_color_libs_config.xml
@@ -951,7 +951,7 @@ vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so
-vendor/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE_SUFFIX=-vendor
+vendor/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE_SUFFIX=_vendor
 
 # Initialization
 vendor/bin/init.kernel.post_boot-lahaina.sh
@@ -986,8 +986,8 @@ vendor/etc/permissions/android.hardware.light.xml
 vendor/etc/permissions/vendor.qti.hardware.factory.xml
 
 # MM OSAL
-vendor/lib/libmmosal.so;MODULE_SUFFIX=-vendor
-vendor/lib64/libmmosal.so;MODULE_SUFFIX=-vendor
+vendor/lib/libmmosal.so;MODULE_SUFFIX=_vendor
+vendor/lib64/libmmosal.so;MODULE_SUFFIX=_vendor
 
 # Media
 system_ext/lib/libmmosal.so
