@@ -60,15 +60,15 @@ namespace vibrator {
 
 #define test_bit(bit, array)    ((array)[(bit)/8] & (1<<((bit)%8)))
 
-static const char ACTIVATE_PATH[] = "/sys/class/leds/vibrator/activate";
-static const char BRIGHTNESS_PATH[] = "/sys/class/leds/vibrator/brightness";
-static const char DURATION_PATH[] = "/sys/class/leds/vibrator/duration";
-static const char GAIN_PATH[] = "/sys/class/leds/vibrator/gain";
-static const char LOOP_PATH[] = "/sys/class/leds/vibrator/loop";
-static const char SEQ_PATH[] = "/sys/class/leds/vibrator/seq";
-static const char VMAX_PATH[] = "/sys/class/leds/vibrator/vmax";
+static const char ACTIVATE_PATH[] = "/sys/class/leds/vibrator_aw8695/activate";
+static const char BRIGHTNESS_PATH[] = "/sys/class/leds/vibrator_aw8695/brightness";
+static const char DURATION_PATH[] = "/sys/class/leds/vibrator_aw8695/duration";
+static const char GAIN_PATH[] = "/sys/class/leds/vibrator_aw8695/gain";
+static const char LOOP_PATH[] = "/sys/class/leds/vibrator_aw8695/loop";
+static const char SEQ_PATH[] = "/sys/class/leds/vibrator_aw8695/seq";
+static const char VMAX_PATH[] = "/sys/class/leds/vibrator_aw8695/vmax";
 
-static const char LED_DEVICE[] = "/sys/class/leds/vibrator";
+static const char LED_DEVICE[] = "/sys/class/leds/vibrator_aw8695";
 
 static std::map<Effect, std::vector<std::pair<std::string, std::string>>> LED_EFFECTS{
     { Effect::CLICK, {
