@@ -13,6 +13,16 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <!-- Ifaa -->
+    <hal format="hidl">
+        <name>vendor.nubia.ifaa</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IIfaa</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <!-- Live Display -->
     <hal format="hidl">
         <name>vendor.lineage.livedisplay</name>
