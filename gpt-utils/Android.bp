@@ -4,7 +4,7 @@
 //
 
 cc_library {
-    name: "libgptutils.sake",
+    name: "libgptutils.nx669j",
     vendor: true,
     recovery_available: true,
     shared_libs: [

@@ -6,7 +6,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter sake,$(TARGET_DEVICE)),)
+ifneq ($(filter nx669j,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
@@ -28,19 +28,6 @@ $(DSP_MOUNT_POINT): $(LOCAL_INSTALLED_MODULE)
 	@mkdir -p $(TARGET_OUT_VENDOR)/dsp
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_MOUNT_POINT) $(BT_FIRMWARE_MOUNT_POINT) $(DSP_MOUNT_POINT)
-
-ASUSFW_MOUNT_POINT := $(TARGET_OUT_VENDOR)/asusfw
-$(ASUSFW_MOUNT_POINT): $(LOCAL_INSTALLED_MODULE)
-	@echo "Creating $(ASUSFW_MOUNT_POINT)"
-	@mkdir -p $(TARGET_OUT_VENDOR)/asusfw
-
-FACTORY_MOUNT_POINT_SYMLINK := $(TARGET_OUT_VENDOR)/factory
-$(FACTORY_MOUNT_POINT_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-	@echo "Creating $@ link"
-	@rm -rf $@
-	$(hide) ln -sf /mnt/vendor/persist $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(ASUSFW_MOUNT_POINT) $(FACTORY_MOUNT_POINT_SYMLINK)
 
 RFS_MSM_ADSP_SYMLINKS := $(TARGET_OUT_VENDOR)/rfs/msm/adsp/
 $(RFS_MSM_ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -90,7 +77,7 @@ WIFI_FIRMWARE_SYMLINKS := $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld
 $(WIFI_FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Creating WiFi firmware symlinks: $@"
 	@mkdir -p $@
-	$(hide) ln -sf /vendor/factory/wlan_mac.bin $@/wlan_mac.bin
+	$(hide) ln -sf /mnt/vendor/persist/wlan_mac.bin $@/wlan_mac.bin
 
 ALL_DEFAULT_INSTALLED_MODULES += \
     $(RFS_MSM_ADSP_SYMLINKS) \

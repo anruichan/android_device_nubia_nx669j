@@ -4,27 +4,21 @@
 //
 
 prebuilt_etc {
-    name: "fstab.battery",
-    src: "fstab.battery",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "fstab.default",
     src: "fstab.default",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "init.asus.rc",
-    src: "init.asus.rc",
-    sub_dir: "init",
+    name: "init.nubia.rc",
+    src: "init.nubia.rc",
+    sub_dir: "init/hw",
     vendor: true,
 }
 
 prebuilt_etc {
-    name: "init.asus.recovery.rc",
-    src: "init.asus.recovery.rc",
+    name: "init.recovery.qcom.rc",
+    src: "init.recovery.qcom.rc",
     sub_dir: "init",
     recovery: true,
 }
@@ -41,13 +35,6 @@ prebuilt_etc {
     src: "init.target.rc",
     sub_dir: "init/hw",
     vendor: true,
-}
-
-prebuilt_hidl_interfaces {
-    name: "hidl_bspcam_interface",
-    interfaces: [
-        "vendor.asus.bspcam@1.0::IAsusBspCameraInterface",
-    ],
 }
 
 prebuilt_hidl_interfaces {

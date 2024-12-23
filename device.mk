@@ -5,7 +5,7 @@
 #
 
 # Inherit from our proprietary files directory.
-$(call inherit-product, vendor/asus/sake/sake-vendor.mk)
+$(call inherit-product, vendor/nubia/nx669j/nx669j-vendor.mk)
 
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
@@ -26,9 +26,6 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
-# APEX
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 # Adreno
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
@@ -38,10 +35,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
 
 # Audio
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/sound_trigger_mixer_paths.xml \
-    frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
-
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.bcl.enabled=false \
     persist.vendor.audio.speaker.prot.enable=false \
@@ -50,6 +43,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product, hardware/qcom-caf/sm8350/audio/configs/lahaina/lahaina.mk)
 $(call inherit-product, vendor/qcom/opensource/audio/configs/qssi/qssi.mk)
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
 PRODUCT_PACKAGES += \
     libbatterylistener \
@@ -63,8 +59,7 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libsndmonitor \
     libspkrprot \
-    libvolumelistener \
-    sound_trigger.primary.lahaina
+    libvolumelistener
 
 # Biometrics
 PRODUCT_COPY_FILES += \
@@ -73,7 +68,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.sake
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.nx669j
 
 # Bluetooth
 include vendor/qcom/opensource/commonsys-intf/bluetooth/bt-commonsys-intf-board.mk
@@ -139,7 +134,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.qti \
+    android.hardware.lights-service.nx669j \
     libtinyxml \
     lights.qcom \
     vendor.lineage.livedisplay@2.0-service-sdm
@@ -165,22 +160,16 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
-# Hotword Enrollment
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/hiddenapi-package-allowlist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/asus-hiddenapi-package-allowlist.xml \
-    $(LOCAL_PATH)/privapp-permissions-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-asus-product.xml
-
 # Initialization
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
 
 PRODUCT_PACKAGES += \
-    fstab.battery \
     fstab.default \
-    init.asus.rc \
-    init.asus.recovery.rc \
     init.class_main.sh \
+    init.nubia.rc \
     init.qcom.early_boot.sh \
+    init.recovery.qcom.rc \
     init.qcom.rc \
     init.qcom.sh \
     init.target.rc \
@@ -215,29 +204,9 @@ PRODUCT_PACKAGES += \
     libstagefright_softomx.vendor \
     libstagefrighthw
 
-# NFC
-$(call inherit-product, vendor/nxp/opensource/commonsys/packages/apps/Nfc/nfc_system_product.mk)
-$(call inherit-product, vendor/nxp/opensource/pn5xx/halimpl/nfc_vendor_product.mk)
-
-TARGET_USES_NQ_NFC := true
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_eSE/android.hardware.se.omapi.ese.xml \
-    frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml
-
-PRODUCT_PACKAGES += \
-    android.hardware.secure_element@1.0:64 \
-    ls_nq_client:64 \
-    jcos_nq_client:64 \
-    vendor.nxp.nxpnfc@1.0.vendor
-
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/nxp/opensource/pn5xx
-
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    kernel/asus/sm8350
 
 # Networking
 PRODUCT_PACKAGES += \
@@ -251,14 +220,14 @@ PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
     FrameworksResCommon \
     FrameworksResTarget \
+    NubiaFrameworks \
+    NubiaSettingsProvider \
+    NubiaSnap \
+    NubiaSystemUI \
     SystemUIResCommon \
     TelephonyResCommon \
     WifiResCommon \
-    WifiResTarget \
-    ZenFone8Frameworks \
-    ZenFone8SettingsProvider \
-    ZenFone8Snap \
-    ZenFone8SystemUI
+    WifiResTarget
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -285,7 +254,7 @@ PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti.vendor
 
 # Security
-BOOT_SECURITY_PATCH := 2021-11-05
+BOOT_SECURITY_PATCH := 2021-12-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 PRODUCT_PACKAGES += \
@@ -343,7 +312,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.sake
+    vendor.lineage.touch@1.0-service.nx669j
 
 # USB
 $(call inherit-product, vendor/qcom/opensource/usb/vendor_product.mk)
