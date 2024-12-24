@@ -499,6 +499,7 @@ vendor/lib64/com.qualcomm.qti.mcx.usecase.extension.so
 vendor/lib64/libFNVfbEngineHAL.so
 vendor/lib64/libaidenoiser.so
 vendor/lib64/libarcsoft_super_night_raw.so
+vendor/lib64/libarcsoft_hdrplus_hvx_stub.so
 vendor/lib64/libbitmlengine.so
 vendor/lib64/libbitmlenginev2.so
 vendor/lib64/libcamera_nn_stub.so
