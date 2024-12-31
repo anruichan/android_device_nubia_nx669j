@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/asus/sake
+DEVICE_PATH := device/nubia/nx669j
 
 include build/make/target/board/BoardConfigMainlineCommon.mk
 
@@ -47,19 +47,18 @@ TARGET_2ND_CPU_VARIANT := cortex-a76
 # Audio
 AUDIO_FEATURE_ENABLED_DLKM := true
 AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
-AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := true
 AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
 AUDIO_FEATURE_ENABLED_GKI := true
 AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
-AUDIO_FEATURE_ENABLED_SSR := true
+AUDIO_FEATURE_ENABLED_SSR := false
 AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
 BOARD_SUPPORTS_OPENSOURCE_STHAL := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 BOARD_USES_ALSA_AUDIO := true
 
 # Biometrics
-TARGET_SURFACEFLINGER_UDFPS_LIB := //$(DEVICE_PATH):libudfps_extension.sake
+TARGET_SURFACEFLINGER_UDFPS_LIB := //$(DEVICE_PATH):libudfps_extension.nx669j
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
@@ -67,6 +66,10 @@ TARGET_USE_QTI_BT_STACK := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := lahaina
+
+# Build
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # DTB
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
@@ -85,24 +88,16 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(DEVICE_PATH)/hidl/asus_framework_matrix.xml \
+    $(DEVICE_PATH)/hidl/nubia_framework_matrix.xml \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
     vendor/lineage/config/device_framework_matrix.xml \
-    vendor/nxp/nfc/vendor_framework_compatibility_matrix.xml \
-    vendor/nxp/secure_element/vendor_framework_compatibility_matrix.xml
 
 DEVICE_MANIFEST_FILE := \
-    $(DEVICE_PATH)/hidl/asus_manifest.xml \
+    $(DEVICE_PATH)/hidl/nubia_manifest.xml \
     $(DEVICE_PATH)/hidl/manifest.xml
 
 DEVICE_MATRIX_FILE := \
     $(DEVICE_PATH)/hidl/compatibility_matrix.xml
-
-ODM_MANIFEST_SKUS := eSE
-ODM_MANIFEST_ESE_FILES := $(DEVICE_PATH)/hidl/eSE_manifest.xml
-
-# Hacks
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := \
@@ -110,6 +105,7 @@ BOARD_KERNEL_CMDLINE := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
+    androidboot.selinux=permissive \
     cgroup.memory=nokmem,nosocket \
     console=ttyMSM0,115200n8 \
     ip6table_raw.raw_before_defrag=1 \
@@ -124,31 +120,26 @@ BOARD_KERNEL_CMDLINE := \
 BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     adsp_loader_dlkm.ko \
     apr_dlkm.ko \
-    aw8697.ko \
     bolero_cdc_dlkm.ko \
     bt_fm_slim.ko \
     btpower.ko \
     camera.ko \
-    cs35l45_i2c_dlkm.ko \
     e4000.ko \
     fc0011.ko \
     fc0012.ko \
     fc0013.ko \
     fc2580.ko \
-    focaltech_fts_zf.ko \
-    gf_spi.ko \
     hdmi_dlkm.ko \
     hid-aksys.ko \
-    icm206xx.ko \
     it913x.ko \
     llcc_perfmon.ko \
     m88rs6000t.ko \
     machine_dlkm.ko \
     max2165.ko \
+    max98937_dlkm.ko \
     mbhc_dlkm.ko \
     mc44s803.ko \
     msi001.ko \
-    msm_drm.ko \
     mt2060.ko \
     mt2063.ko \
     mt20xx.ko \
@@ -164,21 +155,22 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     q6_dlkm.ko \
     q6_notifier_dlkm.ko \
     q6_pdr_dlkm.ko \
+    qca_cld3_wlan.ko \
     qcom_edac.ko \
     qm1d1b0004.ko \
     qm1d1c0042.ko \
     qt1010.ko \
     r820t.ko \
+    radio-i2c-rtc6226-qca.ko \
     rdbg.ko \
     rmnet_core.ko \
     rmnet_ctl.ko \
     rmnet_offload.ko \
     rmnet_shs.ko \
     rx_macro_dlkm.ko \
-    sensors_vcnl36866.ko \
     si2157.ko \
-    slimbus.ko \
     slimbus-ngd.ko \
+    slimbus.ko \
     snd_event_dlkm.ko \
     stub_dlkm.ko \
     swr_ctrl_dlkm.ko \
@@ -193,12 +185,11 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     tea5767.ko \
     tua9001.ko \
     tuner-simple.ko \
-    tuner-types.ko \
     tuner-xc2028.ko \
     tx_macro_dlkm.ko \
     va_macro_dlkm.ko \
-    wcd937x_dlkm.ko \
     wcd937x_slave_dlkm.ko \
+    wcd937x_dlkm.ko \
     wcd938x_dlkm.ko \
     wcd938x_slave_dlkm.ko \
     wcd9xxx_dlkm.ko \
@@ -213,25 +204,22 @@ TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_OFFSET := 0x01000000
-BOARD_RAMDISK_USE_LZ4 := true
 
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
-TARGET_KERNEL_CONFIG := vendor/$(PRODUCT_DEVICE)_defconfig
-TARGET_KERNEL_SOURCE := kernel/asus/sm8350
+TARGET_KERNEL_CONFIG := vendor/lahaina-qgki_defconfig
+TARGET_KERNEL_SOURCE := kernel/nubia/sm8350
 
 # Partitions
-BOARD_ASUS_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor vendor_dlkm
-BOARD_ASUS_DYNAMIC_PARTITIONS_SIZE := 7512192768 # BOARD_SUPER_PARTITION_SIZE - 4MB
 BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
-BOARD_SUPER_PARTITION_GROUPS := asus_dynamic_partitions
-BOARD_SUPER_PARTITION_SIZE := 7516192768
+BOARD_NUBIA_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor vendor_dlkm
+BOARD_NUBIA_DYNAMIC_PARTITIONS_SIZE := 8048869376 # BOARD_SUPER_PARTITION_SIZE - 4MB
+BOARD_SUPER_PARTITION_GROUPS := nubia_dynamic_partitions
+BOARD_SUPER_PARTITION_SIZE := 8053063680
 
-BOARD_ROOT_EXTRA_FOLDERS += batinfo
-
-BOARD_BOOTIMAGE_PARTITION_SIZE := 0x6000000
-BOARD_DTBOIMG_PARTITION_SIZE := 0x1800000
-BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
+BOARD_DTBOIMG_PARTITION_SIZE := 25165824
+BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := $(BOARD_BOOTIMAGE_PARTITION_SIZE)
 
 ifneq ($(WITH_GMS),true)
@@ -262,12 +250,6 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-BOOT_KERNEL_MODULES := \
-    focaltech_fts_zf.ko \
-    msm_drm.ko \
-    sensors_vcnl36866.ko
-
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.default
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_UI_MARGIN_HEIGHT := 100
@@ -290,15 +272,7 @@ HOSTAPD_VERSION := VER_0_8_X
 WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wlan"
 WIFI_DRIVER_STATE_OFF := "OFF"
 WIFI_DRIVER_STATE_ON := "ON"
-WPA_SUPPLICANT_VERSION := $(HOSTAPD_VERSION)
-
-CONFIG_ACS := true
-CONFIG_FST := true
-CONFIG_IEEE80211AC := true
-CONFIG_IEEE80211AX := true
-CONFIG_MBO := true
-CONFIG_OCV := true
-CONFIG_OWE := true
 WIFI_HIDL_FEATURE_AWARE := true
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+WPA_SUPPLICANT_VERSION := $(HOSTAPD_VERSION)

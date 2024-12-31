@@ -61,7 +61,7 @@ vendor.voice.path.for.pcm.voip=true
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
-bluetooth.device.default_name=Zenfone 8
+bluetooth.device.default_name=RedMagic 6
 bluetooth.hardware.power.idle_cur_ma=6
 bluetooth.hardware.power.operating_voltage_mv=3700
 bluetooth.hardware.power.rx_cur_ma=28
@@ -173,7 +173,7 @@ ro.soc.manufacturer=QTI
 # USB
 sys.usb.mtp.batchcancel=1
 vendor.usb.diag.func.name=ffs
-vendor.usb.product_string=Zenfone 8
+vendor.usb.product_string=Red Magic 6
 vendor.usb.use_ffs_mtp=1
 
 # WiFi

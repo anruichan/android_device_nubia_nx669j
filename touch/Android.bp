@@ -4,15 +4,13 @@
 //
 
 cc_binary {
-    name: "vendor.lineage.touch@1.0-service.sake",
-    init_rc: ["vendor.lineage.touch@1.0-service.sake.rc"],
-    vintf_fragments: ["vendor.lineage.touch@1.0-service.sake.xml"],
+    name: "vendor.lineage.touch@1.0-service.nx669j",
+    init_rc: ["vendor.lineage.touch@1.0-service.nx669j.rc"],
+    vintf_fragments: ["vendor.lineage.touch@1.0-service.nx669j.xml"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [
         "GloveMode.cpp",
-        "HighTouchPollingRate.cpp",
-        "TouchscreenGesture.cpp",
         "service.cpp",
     ],
     shared_libs: [

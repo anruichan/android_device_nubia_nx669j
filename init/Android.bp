@@ -4,37 +4,10 @@
 //
 
 prebuilt_etc {
-    name: "fstab.battery",
-    src: "fstab.battery",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "fstab.default",
     src: "fstab.default",
     vendor: true,
     vendor_ramdisk_available: true,
-}
-
-prebuilt_etc {
-    name: "init.asus.rc",
-    src: "init.asus.rc",
-    sub_dir: "init",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.asus.recovery.rc",
-    src: "init.asus.recovery.rc",
-    sub_dir: "init",
-    recovery: true,
-}
-
-prebuilt_etc {
-    name: "init.asus.usb.rc",
-    src: "init.asus.usb.rc",
-    sub_dir: "init",
-    vendor: true,
 }
 
 prebuilt_etc {
@@ -45,6 +18,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "init.recovery.qcom.rc",
+    src: "init.recovery.qcom.rc",
+    sub_dir: "init",
+    recovery: true,
+}
+
+prebuilt_etc {
     name: "init.target.rc",
     src: "init.target.rc",
     sub_dir: "init/hw",
@@ -52,24 +32,10 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "ueventd.asus.rc",
-    filename: "ueventd.rc",
-    src: "ueventd.asus.rc",
-    device_specific: true,
-}
-
-prebuilt_etc {
     name: "ueventd.qcom.rc",
     filename: "ueventd.rc",
     src: "ueventd.qcom.rc",
     vendor: true,
-}
-
-prebuilt_hidl_interfaces {
-    name: "hidl_bspcam_interface",
-    interfaces: [
-        "vendor.asus.bspcam@1.0::IAsusBspCameraInterface",
-    ],
 }
 
 sh_binary {

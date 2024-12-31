@@ -5,7 +5,7 @@
 #
 
 # Inherit from our proprietary files directory.
-$(call inherit-product, vendor/asus/sake/sake-vendor.mk)
+$(call inherit-product, vendor/nubia/nx669j/nx669j-vendor.mk)
 
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
@@ -72,12 +72,9 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
     android.hardware.soundtrigger@2.3-impl \
-    audio.primary.lahaina \
     audio.r_submix.default \
     audio.usb.default \
-    audio_amplifier.lahaina \
     audioadsprpcd \
-    liba2dpoffload \
     libbatterylistener \
     libcomprcapture \
     libexthwplugin \
@@ -88,7 +85,6 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libsndmonitor \
     libspkrprot \
-    libssrec \
     libvolumelistener \
     sound_trigger.primary.lahaina
 
@@ -101,7 +97,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.sake
+    android.hardware.biometrics.fingerprint@2.3-service.nx669j
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
@@ -137,17 +133,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
 
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.5-service_64 \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service_64 \
+    vendor.qti.hardware.camera.device@1.0.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
-
-# Dirac
-PRODUCT_PACKAGES += \
-    ASUSDiracGef
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4-service.clearkey \
-    android.hardware.drm@1.3.vendor
+    android.hardware.drm@1.4-service.clearkey
 
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
@@ -223,20 +216,16 @@ PRODUCT_PACKAGES += \
 
 # Initialization
 PRODUCT_PACKAGES += \
-    fstab.battery \
     fstab.default \
     fstab.default.vendor_ramdisk \
-    init.asus.rc \
-    init.asus.recovery.rc \
-    init.asus.usb.rc \
     init.class_main.sh \
     init.qcom.early_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
+    init.recovery.qcom.rc \
     init.target.rc \
-    ueventd.asus.rc \
     ueventd.qcom.rc
 
 # Keymaster
@@ -271,20 +260,9 @@ PRODUCT_PACKAGES += \
     libstagefright_softomx.vendor \
     libstagefrighthw
 
-# NFC
-$(call inherit-product, vendor/nxp/nfc/nfc-vendor-product.mk)
-$(call inherit-product, vendor/nxp/secure_element/se-vendor-product.mk)
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_eSE/android.hardware.nfc.ese.xml \
-    frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_eSE/android.hardware.se.omapi.ese.xml
-
-PRODUCT_USES_ESE := false
-
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    kernel/asus/sm8350
+    $(LOCAL_PATH)
 
 # Networking
 PRODUCT_PACKAGES += \
@@ -306,14 +284,14 @@ PRODUCT_PACKAGES += \
     TelephonyResCommon \
     WifiResCommon \
     WifiResTarget \
-    Zenfone8Frameworks \
-    Zenfone8LineageSDK \
-    Zenfone8LineageSettings \
-    Zenfone8LineageSystemUI \
-    Zenfone8Settings \
-    Zenfone8SettingsProvider \
-    Zenfone8SystemUI \
-    Zenfone8Telephony \
+    NubiaFrameworks \
+    NubiaLineageSDK \
+    NubiaLineageSettings \
+    NubiaLineageSystemUI \
+    NubiaSettings \
+    NubiaSettingsProvider \
+    NubiaSystemUI \
+    NubiaTelephony \
     aptxalsOverlay
 
 # Partitions
@@ -322,12 +300,6 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Performance
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2.vendor
-
-# Permissions
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/hiddenapi-package-allowlist-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/asus-hiddenapi-package-allowlist.xml \
-    $(LOCAL_PATH)/privapp-permissions-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-asus.xml \
-    $(LOCAL_PATH)/privapp-permissions-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-asus.xml
 
 # Power
 PRODUCT_PACKAGES += \
@@ -351,7 +323,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor
 
 # Security
-BOOT_SECURITY_PATCH := 2022-08-05
+BOOT_SECURITY_PATCH := 2023-10-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # Sensors
@@ -368,9 +340,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
 
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.1-service.multihal \
+    android.hardware.sensors@2.0-service.multihal \
     libsensorndkbridge \
-    sensors.sake
 
 # Service Tracker
 PRODUCT_PACKAGES += \
@@ -418,7 +389,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.sake
+    vendor.lineage.touch@1.0-service.nx669j
 
 # TrustedUI
 PRODUCT_PACKAGES += \
@@ -451,14 +422,7 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator.service.sake
-
-# WFD
-PRODUCT_BOOT_JARS += \
-    WfdCommon
-
-PRODUCT_PACKAGES += \
-    libwfdaac_vendor
+    android.hardware.vibrator.service.nx669j
 
 # WiFi
 PRODUCT_COPY_FILES += \
