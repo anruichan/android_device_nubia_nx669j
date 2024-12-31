@@ -9,11 +9,6 @@ ro.config.media_vol_steps=30
 ro.vendor.audio.sdk.fluencetype=fluence
 vendor.audio.spkr_prot.tx.sampling_rate=0
 
-# Camera
-vendor.camera.asus.system=1
-vendor.camera.cam5.crop_region=2:0,0,4032,3024;3:728,546,3304,2478
-vendor.camera.expTimeMax=0
-
 # Display
 debug.sf.high_fps_early_gl_phase_offset_ns=-2000000
 debug.sf.high_fps_late_sf_phase_offset_ns=-2000000

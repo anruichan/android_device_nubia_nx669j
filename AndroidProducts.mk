@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_sake.mk
+    $(LOCAL_DIR)/lineage_nx669j.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_sake-eng \
-    lineage_sake-user \
-    lineage_sake-userdebug
+    lineage_nx669j-eng \
+    lineage_nx669j-user \
+    lineage_nx669j-userdebug
