@@ -1360,7 +1360,30 @@ vendor/firmware/vpu20_4v.mdt
 vendor/firmware/vpu20_4v_unsigned.mbn
 
 # Vibrator
+vendor/firmware/aw8695_haptic.bin
 vendor/firmware/aw8697_haptic.bin
+vendor/firmware/aw8697_osc_rtp_24K_5s.bin
+vendor/firmware/aw8697_rtp.bin
+vendor/firmware/awinic_haptic_params.bin
+vendor/firmware/1-fastblood_RTP.bin
+vendor/firmware/3-doulekill_RTP.bin
+vendor/firmware/4-triplekill_RTP.bin
+vendor/firmware/5-quadrakill_RTP.bin
+vendor/firmware/6-pentakill_RTP.bin
+vendor/firmware/7-hexa6_RTP.bin
+vendor/firmware/8-hepta7_RTP.bin
+vendor/firmware/9-octa8_RTP.bin
+vendor/firmware/10-c3_RTP.bin
+vendor/firmware/11-c4_RTP.bin
+vendor/firmware/12-c5_RTP.bin
+vendor/firmware/13-c6_RTP.bin
+vendor/firmware/14-engendary_RTP.bin
+vendor/firmware/18-victory_RTP.bin
+vendor/firmware/19-defeat_RTP.bin
+vendor/firmware/21-pisuccess_RTP.bin
+vendor/firmware/22-youhaveslainanenemy_RTP.bin
+vendor/firmware/23-da_RTP.bin
+vendor/firmware/24-xiao_RTP.bin
 
 # WLAN
 vendor/bin/cnss-daemon
