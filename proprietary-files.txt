@@ -1298,9 +1298,6 @@ vendor/firmware/aw8697_haptic.bin
 # WLAN
 vendor/bin/cnss-daemon
 vendor/etc/init/init.vendor.wlan.rc
-vendor/etc/wifi/p2p_supplicant_overlay.conf
-vendor/etc/wifi/vendor_cmd.xml
-vendor/etc/wifi/wpa_supplicant_overlay.conf
 
 # Widevine
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine
