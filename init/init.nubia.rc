@@ -1,0 +1,456 @@
+on boot
+    # Multicolor led
+    chown system system /sys/class/leds/aw22xxx_led/reg
+    chown system system /sys/class/leds/aw22xxx_led/hwen
+    chown system system /sys/class/leds/aw22xxx_led/fw
+    chown system system /sys/class/leds/aw22xxx_led/cfg
+    chown system system /sys/class/leds/aw22xxx_led/effect
+    chown system system /sys/class/leds/aw22xxx_led/imax
+    chown system system /sys/class/leds/aw22xxx_led/rgb
+    chown system system /sys/class/leds/aw22xxx_led/task0
+    chown system system /sys/class/leds/aw22xxx_led/task1
+    chown system system /sys/class/leds/aw22xxx_led/brightness
+    chown system system /sys/class/leds/aw22xxx_led/max_brightness
+    chown system system /sys/class/leds/aw22xxx_led/para
+    chown system system /sys/class/leds/aw22xxx_led/pattern
+
+    # SSR
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys4/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys5/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys6/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys7/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys8/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys9/restart_level related
+    write /sys/bus/msm_subsys/devices/subsys10/restart_level related
+    # write /sys/bus/msm_subsys/devices/subsys11/restart_level related
+
+    write /sys/module/qcom_dload_mode/parameters/download_mode 0
+
+    # Touchscreen
+    # touchkey
+    mkdir /data/rawdata/files 0775 system system
+    chmod 0777 /system/bin/gt_mp_test
+    chmod 0777 /dev/gtp_tools
+    chmod 0777 /dev/aw9610x_diff
+    chmod 0777 /vendor/bin/hw/aw_algo.so
+    chmod 0777 /data/rawdata/files/GT9897_test_sensor_255_20201120.tporder
+    chown system system /system/bin/gt_mp_test
+    chown system system /sys/devices/platform/soc/998000.i2c/i2c-1/1-0010/key_signal
+    chown system system /sys/devices/platform/soc/998000.i2c/i2c-1/1-0010/firm_version
+    chown system system /sys/devices/platform/soc/998000.i2c/i2c-1/1-0010/L_sensitivity
+    chown system system /sys/devices/platform/soc/998000.i2c/i2c-1/1-0010/mode
+    chown system system /sys/devices/platform/soc/998000.i2c/i2c-1/1-0010/R_sensitivity
+
+    chown system system /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/aot_cali
+    chown system system /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/factory_cali
+    chown system system /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/parasitic_data
+    chown system system /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/diff
+    chown system system /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/operation_mode
+    chown system system /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/click_slide_mode
+
+    chown system system /sys/devices/platform/soc/a88000.i2c/i2c-2/2-0010/key_signal
+    chown system system /sys/devices/platform/soc/a88000.i2c/i2c-2/2-0010/firm_version
+    chown system system /sys/devices/platform/soc/a88000.i2c/i2c-2/2-0010/L_sensitivity
+    chown system system /sys/devices/platform/soc/a88000.i2c/i2c-2/2-0010/mode
+    chown system system /sys/devices/platform/soc/a88000.i2c/i2c-2/2-0010/R_sensitivity
+
+    chown system system /sys/devices/platform/soc/a88000.i2c/i2c-3/3-0010/key_signal
+    chown system system /sys/devices/platform/soc/a88000.i2c/i2c-3/3-0010/firm_version
+    chown system system /sys/devices/platform/soc/a88000.i2c/i2c-3/3-0010/L_sensitivity
+    chown system system /sys/devices/platform/soc/a88000.i2c/i2c-3/3-0010/mode
+    chown system system /sys/devices/platform/soc/a88000.i2c/i2c-3/3-0010/R_sensitivity
+
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/enable
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/fpswitch
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/virtual_tp
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/fp
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/chip_info
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/prevention
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/sensitivity
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/open_sensitivity
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/separation
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/rate
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/levelregion
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/highrate
+    chown system system /sys/devices/platform/nubia_goodix_ts.0/gesture/open_prevention
+    chown system system /sys/kernel/tp_node/fp_mode
+    chmod 666 /sys/devices/platform/soc/998000.i2c/i2c-1/1-0010/mode
+    chmod 666 /sys/devices/platform/soc/998000.i2c/i2c-1/1-0010/R_sensitivity
+    chmod 666 /sys/devices/platform/soc/998000.i2c/i2c-1/1-0010/key_signal
+    chmod 666 /sys/devices/platform/soc/998000.i2c/i2c-1/1-0010/firm_version
+
+    chmod 666 /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/factory_cali
+    chmod 666 /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/aot_cali
+    chmod 666 /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/parasitic_data
+    chmod 666 /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/diff
+    chmod 666 /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/operation_mode
+    chmod 666 /sys/devices/platform/soc/a80000.i2c/i2c-2/2-0013/click_slide_mode
+
+    chmod 666 /sys/devices/platform/soc/a88000.i2c/i2c-3/3-0010/L_sensitivity
+    chmod 666 /sys/devices/platform/soc/a88000.i2c/i2c-3/3-0010/mode
+    chmod 666 /sys/devices/platform/soc/a88000.i2c/i2c-3/3-0010/R_sensitivity
+    chmod 666 /sys/devices/platform/soc/a88000.i2c/i2c-3/3-0010/key_signal
+    chmod 666 /sys/devices/platform/soc/a88000.i2c/i2c-3/3-0010/firm_version
+
+    chmod 666 /sys/devices/platform/soc/a88000.i2c/i2c-2/2-0010/L_sensitivity
+    chmod 666 /sys/devices/platform/soc/a88000.i2c/i2c-2/2-0010/mode
+    chmod 666 /sys/devices/platform/soc/a88000.i2c/i2c-2/2-0010/R_sensitivity
+    chmod 666 /sys/devices/platform/soc/a88000.i2c/i2c-2/2-0010/key_signal
+    chmod 666 /sys/devices/platform/soc/a88000.i2c/i2c-2/2-0010/firm_version
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/enable
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/virtual_tp
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/fpswitch
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/fp
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/chip_info
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/prevention
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/sensitivity
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/open_sensitivity
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/separation
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/rate
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/levelregion
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/highrate
+    chmod 666 /sys/devices/platform/nubia_goodix_ts.0/gesture/open_prevention
+    chmod 666 /sys/kernel/tp_node/fp_mode
+
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chmod 666 /sys/class/backlight/panel0-backlight/brightness
+
+    # lcd
+    chown system system /sys/kernel/lcd_enhance/cabc
+    chown system system /sys/kernel/lcd_enhance/lcd_reg
+    chown system system /sys/kernel/lcd_enhance/dfps
+    chown system system /sys/kernel/lcd_enhance/nubia_panel_reg
+    chown system system /sys/kernel/lcd_enhance/hbm_mode
+    chown system system /sys/kernel/lcd_enhance/panel_firmware_id
+    chown system system /sys/kernel/lcd_enhance/aod_brightness
+    chown system system /sys/kernel/lcd_enhance/lhbm_mode
+    chown system system /sys/kernel/lcd_enhance/bl_limit
+    chmod 0666 /sys/kernel/lcd_enhance/bl_limit
+    chown system system /sys/kernel/lcd_enhance/hbm_state
+    chown system system /sys/kernel/lcd_enhance/hbm_feedback
+    # end
+
+    on property:sys.nubia.fpmode.private=1
+        write /sys/devices/platform/nubia_goodix_ts.0/fpswitch 1
+        write /sys/devices/platform/nubia_goodix_ts.0/gesture/fp 1
+
+    on property:sys.nubia.fpmode.private=0
+        write /sys/devices/platform/nubia_goodix_ts.0/fpswitch 0
+        write /sys/devices/platform/nubia_goodix_ts.0/gesture/fp 0
+    # nubia end
+
+on post-fs-data
+    # Battery
+    # Nubia add start
+    chmod 664 /sys/class/qcom-battery/battery_type
+    chmod 664 /sys/class/qcom-battery/float_capacity
+    chmod 664 /sys/class/qcom-battery/charger_vdm
+    chmod 664 /sys/kernel/nubia_charge/charger_bypass
+
+    chown system system /sys/kernel/nubia_charge/charger_bypass
+    chown system system /sys/class/qcom-battery/battery_type
+    chown system system /sys/class/qcom-battery/float_capacity
+    chown system system /sys/class/qcom-battery/charger_vdm
+    # Nubia add end
+
+    chmod 0664 /sys/class/qcom-battery/ship_mode_en
+    chown system system /sys/class/qcom-battery/ship_mode_en
+
+    # Fingerprint
+    # for goodix fingerprint
+    chmod 0666 /dev/goodix_fp
+    chown system system /dev/goodix_fp
+    chmod 0666 /sys/kernel/lcd_enhance/hbm_mode
+    chown system system /sys/kernel/lcd_enhance/hbm_mode
+    chmod 0666 /sys/kernel/lcd_enhance/aod_brightness
+    chown system system /sys/kernel/lcd_enhance/aod_brightness
+    chmod 0666 /sys/class/backlight/panel0-backlight/brightness
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chmod 0666 /sys/kernel/tp_node/fp_mode
+    chown system system /sys/kernel/tp_node/fp_mode
+
+    # for goodix save dump data
+    mkdir /data/vendor/goodix 0777 system system
+    # mkdir /data/vendor/goodix/gf_data 0777 system system
+    # mkdir /data/vendor/goodix/gf_data/encrypted_data 0777 system system
+
+    # for goodix save Calibration and Fingers data
+    mkdir /mnt/vendor/persist/goodix 0777 system system
+    # setprop persist.vendor.goodix.dump_data 1
+
+    # for bind bigcluster to enhance fingerprint unlock and enroll speed
+    chmod 0666 /dev/cpuset/bigcluster/cgroup.procs
+
+    # for fingerprint unbind bigcluster
+    chmod 0666 /dev/cpuset/cgroup.procs
+
+    # Haptic
+    # Nubia add start  
+    # chown system system /sys/devices/platform/soc/88c000.i2c/i2c-7/7-005a/leds/vibrator_aw8695/activate
+    # chown system system /sys/devices/platform/soc/88c000.i2c/i2c-7/7-005a/leds/vibrator_aw8695/duration
+    # chown system system /sys/devices/platform/soc/88c000.i2c/i2c-7/7-005a/leds/vibrator_aw8695/state
+    chown system system /sys/class/leds/vibrator_aw8695/state
+    chown system system /sys/class/leds/vibrator_aw8695/duration
+    chown system system /sys/class/leds/vibrator_aw8695/activate
+    chown system system /sys/class/leds/vibrator_aw8695/activate_mode
+    chown system system /sys/class/leds/vibrator_aw8695/brightness
+    chown system system /sys/class/leds/vibrator_aw8695/cali
+    chown system system /sys/class/leds/vibrator_aw8695/cont
+    chown system system /sys/class/leds/vibrator_aw8695/cont_drv
+    chown system system /sys/class/leds/vibrator_aw8695/cont_num_brk
+    chown system system /sys/class/leds/vibrator_aw8695/cont_td
+    chown system system /sys/class/leds/vibrator_aw8695/cont_zc_thr
+    chown system system /sys/class/leds/vibrator_aw8695/f0
+    chown system system /sys/class/leds/vibrator_aw8695/gain
+    chown system system /sys/class/leds/vibrator_aw8695/haptic_audio
+    chown system system /sys/class/leds/vibrator_aw8695/haptic_audio_time
+    chown system system /sys/class/leds/vibrator_aw8695/index
+    chown system system /sys/class/leds/vibrator_aw8695/loop
+    chown system system /sys/class/leds/vibrator_aw8695/rtp
+    chown system system /sys/class/leds/vibrator_aw8695/seq
+    chown system system /sys/class/leds/vibrator_aw8695/vmax
+    chown system system /sys/class/leds/vibrator_aw8695/touch
+    chown system system /sys/class/leds/vibrator_aw8695/touch_enable
+
+    chmod 664 /sys/class/leds/vibrator_aw8695/state
+    chmod 664 /sys/class/leds/vibrator_aw8695/rtp
+    chmod 664 /sys/class/leds/vibrator_aw8695/activate
+    chmod 664 /sys/class/leds/vibrator_aw8695/activate_mode
+    chmod 664 /sys/class/leds/vibrator_aw8695/duration
+    chmod 664 /sys/class/leds/vibrator_aw8695/index
+    chmod 664 /sys/class/leds/vibrator_aw8695/seq
+    chmod 664 /sys/class/leds/vibrator_aw8695/vmax
+    chmod 664 /sys/class/leds/vibrator_aw8695/touch
+    chmod 664 /sys/class/leds/vibrator_aw8695/touch_enable
+    chmod 664 /sys/class/leds/vibrator_aw8695/brightness
+    chmod 664 /sys/class/leds/vibrator_aw8695/haptic_audio
+    chmod 664 /sys/class/leds/vibrator_aw8695/haptic_audio_time
+    # chmod 664 /sys/devices/platform/soc/88c000.i2c/i2c-7/7-005a/leds/vibrator_aw8695/activate
+    # chmod 664 /sys/devices/platform/soc/88c000.i2c/i2c-7/7-005a/leds/vibrator_aw8695/duration
+    # chmod 664 /sys/devices/platform/soc/88c000.i2c/i2c-7/7-005a/leds/vibrator_aw8695/state
+
+    # DP function
+    chown system system /sys/kernel/lcd_enhance/edid_modes
+    chown system system /sys/kernel/lcd_enhance/hpd
+    chown system system /sys/kernel/lcd_enhance/selected_edid
+    chmod 666 /sys/kernel/lcd_enhance/edid_modes
+    chmod 666 /sys/kernel/lcd_enhance/hpd
+    chmod 666 /sys/kernel/lcd_enhance/selected_edid
+    # Nubia add end
+
+    # Breath light
+    chown system system /sys/class/leds/red/breath_feature
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/red/breath
+    chown system system /sys/class/leds/red/delay_off
+    chown system system /sys/class/leds/red/delya_on
+    chown system system /sys/class/leds/red/device
+    chown system system /sys/class/leds/red/max_brightness
+
+    chown system system /sys/class/leds/green/breath_feature
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/green/breath
+    chown system system /sys/class/leds/green/delay_off
+    chown system system /sys/class/leds/green/delya_on
+    chown system system /sys/class/leds/green/device
+    chown system system /sys/class/leds/green/max_brightness
+
+    chown system system /sys/class/leds/blue/breath_feature
+    chown system system /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/blue/breath
+    chown system system /sys/class/leds/blue/delay_off
+    chown system system /sys/class/leds/blue/delya_on
+    chown system system /sys/class/leds/blue/device
+    chown system system /sys/class/leds/blue/max_brightness
+
+    chmod 664 /sys/class/leds/red/breath_feature
+    chmod 664 /sys/class/leds/red/brightness
+    chmod 664 /sys/class/leds/red/breath
+    chmod 664 /sys/class/leds/red/delay_off
+    chmod 664 /sys/class/leds/red/delya_on
+    chmod 666 /sys/class/leds/red/device
+    chmod 666 /sys/class/leds/red/max_brightness
+
+    chmod 664 /sys/class/leds/blue/breath_feature
+    chmod 664 /sys/class/leds/blue/brightness
+    chmod 664 /sys/class/leds/blue/breath
+    chmod 664 /sys/class/leds/blue/delay_off
+    chmod 664 /sys/class/leds/blue/delya_on
+    chmod 666 /sys/class/leds/blue/device
+    chmod 666 /sys/class/leds/blue/max_brightness
+
+    chmod 664 /sys/class/leds/green/breath_feature
+    chmod 664 /sys/class/leds/green/brightness
+    chmod 664 /sys/class/leds/green/breath
+    chmod 664 /sys/class/leds/green/delay_off
+    chmod 664 /sys/class/leds/green/delya_on
+    chmod 666 /sys/class/leds/green/device
+    chmod 666 /sys/class/leds/green/max_brightness
+
+    # Sensors
+    # Nubia add start
+    # for FFBM calibration set result flag
+    chmod 0777 /mnt/vendor/persist/sensors
+
+    chmod 0666 /mnt/vendor/persist/sensors/g_sensor_cal
+    chown system system /mnt/vendor/persist/sensors/g_sensor_cal
+
+    chmod 0666 /mnt/vendor/persist/sensors/xtalk_cal
+    chown system system /mnt/vendor/persist/sensors/xtalk_cal
+
+    chmod 0666 /mnt/vendor/persist/sensors/als_cal_data
+    chown system system /mnt/vendor/persist/sensors/als_cal_data
+
+    chmod 0666 /mnt/vendor/persist/sensors/vibrator_cal
+    chown system system /mnt/vendor/persist/sensors/vibrator_cal
+
+    chmod 0666 /mnt/vendor/persist/sensors/vibrator_cal_data
+    chown system system /mnt/vendor/persist/sensors/vibrator_cal_data
+
+    chmod 0666 /mnt/vendor/persist/sensors/als_fac_cal
+    chown system system /mnt/vendor/persist/sensors/als_fac_cal
+
+    chown system system /persist/sensors/rgb_color_cfg
+    chmod 0666 /persist/sensors/rgb_color_cfg
+
+    chown system system /persist/sensors/rgbc_cfg
+    chmod 0666 /persist/sensors/rgbc_cfg
+
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level related
+
+    # proximity
+    chown system system /sys/class/proximity/proximity/code
+    chown system system /sys/class/proximity/proximity/codethdh
+    chown system system /sys/class/proximity/proximity/codethdl
+    chown system system /sys/class/proximity/proximity/dev
+    chown system system /sys/class/proximity/proximity/distance
+    chown system system /sys/class/proximity/proximity/enable
+    chown system system /sys/class/proximity/proximity/enableaso
+    chown system system /sys/class/proximity/proximity/htnct
+    chown system system /sys/class/proximity/proximity/ltnct
+    chown system system /sys/class/proximity/proximity/maxdiff
+    chown system system /sys/class/proximity/proximity/offset
+    chown system system /sys/class/proximity/proximity/prox_data_max
+    chown system system /sys/class/proximity/proximity/prox_debug
+    chown system system /sys/class/proximity/proximity/prox_init
+    chown system system /sys/class/proximity/proximity/prox_offset
+    chown system system /sys/class/proximity/proximity/prox_offset_cal
+    chown system system /sys/class/proximity/proximity/prox_thres
+    chown system system /sys/class/proximity/proximity/prox_thres_max
+    chown system system /sys/class/proximity/proximity/prox_thres_min
+    chown system system /sys/class/proximity/proximity/prox_thres_to_persist
+    chown system system /sys/class/proximity/proximity/prox_uncover_max
+    chown system system /sys/class/proximity/proximity/prox_uncover_min
+    chown system system /sys/class/proximity/proximity/prox_value
+    chown system system /sys/class/proximity/proximity/recv
+    chown system system /sys/class/proximity/proximity/send
+    chown system system /sys/class/proximity/proximity/status
+
+    chmod 0664 /sys/class/proximity/proximity/allreg
+    chmod 0664 /sys/class/proximity/proximity/cali
+    chmod 0664 /sys/class/proximity/proximity/chip_name
+    chmod 0664 /sys/class/proximity/proximity/code
+    chmod 0664 /sys/class/proximity/proximity/codethdh
+    chmod 0664 /sys/class/proximity/proximity/codethdl
+    chmod 0664 /sys/class/proximity/proximity/dev
+    chmod 0664 /sys/class/proximity/proximity/distance
+    chmod 0664 /sys/class/proximity/proximity/enable
+    chmod 0664 /sys/class/proximity/proximity/enableaso
+    chmod 0664 /sys/class/proximity/proximity/htnct
+    chmod 0664 /sys/class/proximity/proximity/ltnct
+    chmod 0664 /sys/class/proximity/proximity/maxdiff
+    chmod 0664 /sys/class/proximity/proximity/offset
+    chmod 0664 /sys/class/proximity/proximity/prox_data_max
+    chmod 0664 /sys/class/proximity/proximity/prox_debug
+    chmod 0664 /sys/class/proximity/proximity/prox_init
+    chmod 0664 /sys/class/proximity/proximity/prox_offset
+    chmod 0664 /sys/class/proximity/proximity/prox_offset_cal
+    chmod 0664 /sys/class/proximity/proximity/prox_thres
+    chmod 0664 /sys/class/proximity/proximity/prox_thres_max
+    chmod 0664 /sys/class/proximity/proximity/prox_thres_min
+    chmod 0664 /sys/class/proximity/proximity/prox_thres_to_persist
+    chmod 0664 /sys/class/proximity/proximity/prox_uncover_max
+    chmod 0664 /sys/class/proximity/proximity/prox_uncover_min
+    chmod 0664 /sys/class/proximity/proximity/prox_value
+    chmod 0664 /sys/class/proximity/proximity/recv
+    chmod 0664 /sys/class/proximity/proximity/send
+    chmod 0664 /sys/class/proximity/proximity/status
+
+    # light
+    chown system system /sys/class/light/light/calibrate
+    chown system system /sys/class/light/light/chip_name
+    chown system system /sys/class/light/light/code
+    chown system system /sys/class/light/light/dev
+    chown system system /sys/class/light/light/dev_init
+    chown system system /sys/class/light/light/enable
+    chown system system /sys/class/light/light/fac_calibrate
+    chown system system /sys/class/light/light/als_calibrate
+    chown system system /sys/class/light/light/firlen
+    chown system system /sys/class/light/light/ircode
+    chown system system /sys/class/light/light/lux
+    chown system system /sys/class/light/light/transmittance
+
+    chmod 0664 /sys/class/light/light/calibrate
+    chmod 0664 /sys/class/light/light/chip_name
+    chmod 0664 /sys/class/light/light/code
+    chmod 0664 /sys/class/light/light/dev
+    chmod 0664 /sys/class/light/light/dev_init
+    chmod 0664 /sys/class/light/light/enable
+    chmod 0664 /sys/class/light/light/als_calibrate
+    chmod 0664 /sys/class/light/light/fac_calibrate
+    chmod 0664 /sys/class/light/light/firlen
+    chmod 0664 /sys/class/light/light/ircode
+    chmod 0664 /sys/class/light/light/lux
+    chmod 0664 /sys/class/light/light/transmittance
+
+    # dev/input
+    chmod 0666 /dev/input/event4
+    chown system system /dev/input/event4
+    chmod 0666 /dev/input/event5
+    chown system system /dev/input/event5
+    chmod 0666 /dev/input/event6
+    chown system system /dev/input/event6
+    chmod 0666 /dev/input/event7
+    chown system system /dev/input/event7
+    # Nubia add end
+
+    # sensors sensitivity
+    chown system system /sys/class/sensors_sensitivity/accel/accel_enable
+    chown system system /sys/class/sensors_sensitivity/accel/accel_x
+    chown system system /sys/class/sensors_sensitivity/accel/accel_y
+    chown system system /sys/class/sensors_sensitivity/accel/accel_z
+    chown system system /sys/class/sensors_sensitivity/gyro/gyro_enable
+    chown system system /sys/class/sensors_sensitivity/gyro/gyro_x
+    chown system system /sys/class/sensors_sensitivity/gyro/gyro_y
+    chown system system /sys/class/sensors_sensitivity/gyro/gyro_z
+
+    chmod 0664 /sys/class/sensors_sensitivity/accel/accel_enable
+    chmod 0664 /sys/class/sensors_sensitivity/accel/accel_x
+    chmod 0664 /sys/class/sensors_sensitivity/accel/accel_y
+    chmod 0664 /sys/class/sensors_sensitivity/accel/accel_z
+    chmod 0664 /sys/class/sensors_sensitivity/gyro/gyro_enable
+    chmod 0664 /sys/class/sensors_sensitivity/gyro/gyro_x
+    chmod 0664 /sys/class/sensors_sensitivity/gyro/gyro_y
+    chmod 0664 /sys/class/sensors_sensitivity/gyro/gyro_z
+
+    # SmartFan
+    # Nubia add start
+
+    chown system system /sys/kernel/fan/fan_current
+    chown system system /sys/kernel/fan/fan_enable
+    chown system system /sys/kernel/fan/fan_speed_count
+    chown system system /sys/kernel/fan/fan_speed_level
+    chown system system /sys/kernel/fan/fan_temp
+    chown system system /sys/kernel/fan/fan_thermal_engine_level 
+
+    chmod 664 /sys/kernel/fan/fan_current
+    chmod 664 /sys/kernel/fan/fan_enable
+    chmod 664 /sys/kernel/fan/fan_speed_count
+    chmod 664 /sys/kernel/fan/fan_speed_level
+    chmod 664 /sys/kernel/fan/fan_temp
+    chmod 664 /sys/kernel/fan/fan_thermal_engine_level 
+    # Nubia add end
