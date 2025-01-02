@@ -1392,6 +1392,10 @@ vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
 
+# Touchscreen
+vendor/firmware/goodix_cfg_group.bin
+vendor/firmware/goodix_firmware.bin
+
 # VM
 vendor/bin/vmmgr
 vendor/etc/init/vmmgr.rc
