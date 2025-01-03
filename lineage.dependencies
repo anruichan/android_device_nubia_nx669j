@@ -2,5 +2,9 @@
   {
     "repository": "android_kernel_nubia_sm8350",
     "target_path": "kernel/nubia/sm8350"
+  },
+  {
+    "repository": "android_vendor_qcom_opensource_healthd-ext",
+    "target_path": "vendor/qcom/opensource/healthd-ext"
   }
 ]
