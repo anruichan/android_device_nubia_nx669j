@@ -766,8 +766,10 @@ vendor/lib64/vendor.display.color@1.4.so|b5566647c1581f26a3914143414f8a18a97a708
 vendor/lib64/vendor.display.color@1.5.so|5a1e7d0de33509909cf0f514b754e95f2233c86e
 vendor/lib64/vendor.display.postproc@1.0.so|e63c770fc317a9d98ddd2de2c7d6250258398f2e
 
-# Display (OSS)
+# Display (HWC)
 vendor/etc/snapdragon_color_libs_config.xml
+vendor/lib64/libstc-oem-HW-modulate.so
+vendor/lib64/libstc-oem-mode-support.so
 
 # FASTCV
 vendor/lib/libfastcvopt.so
