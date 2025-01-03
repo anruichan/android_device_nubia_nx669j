@@ -7,13 +7,13 @@
 
     <!-- Height of the status bar.
          Do not read this dimen directly. Use {@link SystemBarUtils#getStatusBarHeight} instead. -->
-    <dimen name="status_bar_height">118px</dimen>
+    <dimen name="status_bar_height_portrait">37dp</dimen>
 
-    <!-- Height of area above QQS where battery/time go. -->
-    <dimen name="quick_qs_offset_height">150px</dimen>
+    <!-- Default paddings for content around the corners. -->
+    <dimen name="rounded_corner_content_padding">0dp</dimen>
 
     <!-- Default radius of the software rounded corners. -->
-    <dimen name="rounded_corner_radius">146px</dimen>
+    <dimen name="rounded_corner_radius">20px</dimen>
 
     <!-- Default adjustment for the software rounded corners since corners are not perfectly
         round. This value is used when retrieving the "radius" of the rounded corner in cases
