@@ -730,6 +730,11 @@ vendor/lib/libdiag.so
 vendor/lib64/libdiag.so
 vendor/lib64/vendor.qti.diaghal@1.0.so
 
+# Display
+vendor/etc/snapdragon_color_libs_config.xml
+vendor/lib64/libstc-oem-HW-modulate.so
+vendor/lib64/libstc-oem-mode-support.so
+
 # Display - from renoir - 22.5.11
 vendor/bin/hw/vendor.display.color@1.0-service|347fda7fe824e405829e1772739e999937421a58
 vendor/bin/ppd|4fcb818e39c813570fdbfaa9726274986e190e04
@@ -767,8 +772,11 @@ vendor/lib64/vendor.display.color@1.4.so|b5566647c1581f26a3914143414f8a18a97a708
 vendor/lib64/vendor.display.color@1.5.so|5a1e7d0de33509909cf0f514b754e95f2233c86e
 vendor/lib64/vendor.display.postproc@1.0.so|e63c770fc317a9d98ddd2de2c7d6250258398f2e
 
-# Display (OSS)
-vendor/etc/snapdragon_color_libs_config.xml
+# Display calibration
+vendor/etc/qdcm_calib_data_dsi_nt37701_1080_2400_amoled_command_cphy_panel.xml
+vendor/etc/qdcm_calib_data_dsi_nt37800a_1080_2400_amoled_command_cphy_b6_panel.xml
+vendor/etc/qdcm_calib_data_dsi_nt37800a_1080_2400_amoled_command_cphy_panel.xml
+vendor/etc/qdcm_calib_data_dsi_vdtr6130_1080_2400_amoled_command_dphy_panel.xml
 
 # FASTCV
 vendor/lib/libfastcvopt.so
