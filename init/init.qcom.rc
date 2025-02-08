@@ -25,15 +25,17 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /vendor/etc/init/hw/init.nubia.rc
 import /vendor/etc/init/hw/init.qti.ufs.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.qcom.test.rc
 import /vendor/etc/init/hw/init.target.rc
-import /vendor/etc/init/hw/init.qcom.factory.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
+    mount tracefs tracefs /sys/kernel/tracing
+    chmod 0755 /sys/kernel/tracing
 
   # create symlink for vendor mount points
     symlink /vendor/firmware_mnt /firmware
@@ -184,7 +186,9 @@ on boot
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
-    # Allow access to emmc dload sysfs node
+    # Allow access to emmc rawdump block partition and dload sysfs node
+    chown root system /dev/block/bootdevice/by-name/rawdump
+    chmod 0660 /dev/block/bootdevice/by-name/rawdump
     chown root system /sys/kernel/dload/emmc_dload
     chmod 0660 /sys/kernel/dload/emmc_dload
     chown root system /dev/block/bootdevice/by-name/ramdump
@@ -206,6 +210,12 @@ on boot
     chown system system /sys/class/sensors/apds9930-light/poll_delay
     chown system system /sys/class/sensors/apds9930-proximity/enable
     chown system system /sys/class/sensors/apds9930-proximity/poll_delay
+
+    # change ownership and premission for awinic haptic shock with music
+    chown system audio /dev/aw8695_haptic
+    chmod 0660 /dev/aw8695_haptic
+    chown system audio /sys/class/leds/vibrator/haptic_audio
+    chmod 0660 /sys/class/leds/vibrator/haptic_audio
 
     # Create directory used for display
     # for backward compatibility
@@ -248,8 +258,17 @@ on post-fs-data
     mkdir /data/vendor/qtee 0770 system system
 
     #Create folder of camera
-    mkdir /data/vendor/camera 0770 camera camera
+    mkdir /data/vendor/camera 0775 camera camera
 
+    # ZTEMT:kangxiong modify for camera
+    chown cameraserver cameraserver /sys/kernel/camera/file_dump
+    chown cameraserver cameraserver /sys/kernel/camera/torch_switch
+    chown cameraserver cameraserver /sys/kernel/camera/ois_switch
+    chown cameraserver cameraserver /sys/kernel/camera/eeprom_calibration
+    chmod 0666 /sys/kernel/camera/file_dump
+    chmod 0666 /sys/kernel/camera/torch_switch
+    chmod 0666 /sys/kernel/camera/ois_switch
+    chmod 0666 /sys/kernel/camera/eeprom_calibration
 
     #Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
@@ -282,6 +301,9 @@ on post-fs-data
     # Create directory for audio delta files
     mkdir /data/vendor/audio/acdbdata 0770 media audio
     mkdir /data/vendor/audio/acdbdata/delta 0770 media audio
+    # add DTS AUDIO
+    mkdir /data/vendor/audio/dts 0771 media audio
+    # Nubia add end
 
     # Create directory for radio
     mkdir /data/vendor/radio 0770 system radio
@@ -890,7 +912,6 @@ service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.andro
     class main
     disabled
     oneshot
-    keycodes 114 115 116
 
 #Set GPU Opengles version
 on property:vendor.opengles.version=*
