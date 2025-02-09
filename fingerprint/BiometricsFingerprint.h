@@ -76,6 +76,7 @@ private:
     static BiometricsFingerprint* sInstance;
 
     std::mutex mClientCallbackMutex;
+    std::string CLOSE_HBM_MODE;
     sp<IBiometricsFingerprintClientCallback> mClientCallback;
     fingerprint_device_t *mDevice;
 };
