@@ -18,11 +18,20 @@
 
 #include <hardware/hw_auth_token.h>
 
+#include <android-base/file.h>
 #include <hardware/hardware.h>
 #include "BiometricsFingerprint.h"
 
 #include <inttypes.h>
 #include <unistd.h>
+
+#define CMD_FINGER_DOWN 13
+#define CMD_FINGER_UI_READY 14
+#define CMD_FINGER_UP 15
+
+#define BRIGHTNESS_PATH "/sys/class/backlight/panel0-backlight/brightness"
+#define HBM_MODE_PATH "/sys/kernel/lcd_enhance/hbm_mode"
+#define SET_HBM_MODE "4095"
 
 namespace android {
 namespace hardware {
@@ -67,10 +76,16 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, float) {
+    mDevice->fingerprint_process_cmd(mDevice, CMD_FINGER_DOWN, 0, 0, 0, 0);
+    android::base::WriteStringToFile(SET_HBM_MODE, HBM_MODE_PATH);
+    mDevice->fingerprint_process_cmd(mDevice, CMD_FINGER_UI_READY, 0, 0, 0, 0);
     return Void();
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
+    android::base::ReadFileToString(BRIGHTNESS_PATH, &CLOSE_HBM_MODE);
+    android::base::WriteStringToFile(CLOSE_HBM_MODE, HBM_MODE_PATH);
+    mDevice->fingerprint_process_cmd(mDevice, CMD_FINGER_UP, 0, 0, 0, 0);
     return Void();
 }
 
