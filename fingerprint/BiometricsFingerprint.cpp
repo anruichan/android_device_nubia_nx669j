@@ -31,6 +31,9 @@
 
 #define BRIGHTNESS_PATH "/sys/class/backlight/panel0-backlight/brightness"
 #define HBM_MODE_PATH "/sys/kernel/lcd_enhance/hbm_mode"
+#define LOCAL_HBM_MODE_PATH "/sys/kernel/lcd_enhance/lhbm_mode"
+#define LOCAL_HBM_ON "1"
+#define LOCAL_HBM_OFF "0"
 #define SET_HBM_MODE "4095"
 
 namespace android {
@@ -78,7 +81,11 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t) {
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, float) {
     ALOGD("onFingerDown()");
     mDevice->fingerprint_process_cmd(mDevice, CMD_FINGER_DOWN, 0, 0, 0, 0);
-    android::base::WriteStringToFile(SET_HBM_MODE, HBM_MODE_PATH);
+    if (mIsEnroll) {
+        android::base::WriteStringToFile(SET_HBM_MODE, HBM_MODE_PATH);
+    } else {
+        android::base::WriteStringToFile(LOCAL_HBM_ON, LOCAL_HBM_MODE_PATH);
+    }
     mDevice->fingerprint_process_cmd(mDevice, CMD_FINGER_UI_READY, 0, 0, 0, 0);
     return Void();
 }
@@ -86,8 +93,12 @@ Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, floa
 Return<void> BiometricsFingerprint::onFingerUp() {
     ALOGD("onFingerUp()");
     mDevice->fingerprint_process_cmd(mDevice, CMD_FINGER_UP, 0, 0, 0, 0);
-    android::base::ReadFileToString(BRIGHTNESS_PATH, &CLOSE_HBM_MODE);
-    android::base::WriteStringToFile(CLOSE_HBM_MODE, HBM_MODE_PATH);
+    if (mIsEnroll) {
+        android::base::ReadFileToString(BRIGHTNESS_PATH, &CLOSE_HBM_MODE);
+        android::base::WriteStringToFile(CLOSE_HBM_MODE, HBM_MODE_PATH);
+    } else {
+        android::base::WriteStringToFile(LOCAL_HBM_OFF, LOCAL_HBM_MODE_PATH);
+    }
     return Void();
 }
 
@@ -188,6 +199,7 @@ Return<uint64_t> BiometricsFingerprint::preEnroll()  {
 
 Return<RequestStatus> BiometricsFingerprint::enroll(const hidl_array<uint8_t, 69>& hat,
         uint32_t gid, uint32_t timeoutSec) {
+    mIsEnroll = true;
     const hw_auth_token_t* authToken =
         reinterpret_cast<const hw_auth_token_t*>(hat.data());
     return ErrorFilter(mDevice->enroll(mDevice, authToken, gid, timeoutSec));
@@ -230,6 +242,7 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
 
 Return<RequestStatus> BiometricsFingerprint::authenticate(uint64_t operationId,
         uint32_t gid) {
+    mIsEnroll = false;
     return ErrorFilter(mDevice->authenticate(mDevice, operationId, gid));
 }
 
