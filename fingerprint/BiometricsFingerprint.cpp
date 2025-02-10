@@ -83,6 +83,7 @@ Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, floa
     mDevice->fingerprint_process_cmd(mDevice, CMD_FINGER_DOWN, 0, 0, 0, 0);
     if (mIsEnroll) {
         android::base::WriteStringToFile(SET_HBM_MODE, HBM_MODE_PATH);
+        android::base::WriteStringToFile(LOCAL_HBM_ON, LOCAL_HBM_MODE_PATH);
     } else {
         android::base::WriteStringToFile(LOCAL_HBM_ON, LOCAL_HBM_MODE_PATH);
     }
@@ -96,6 +97,7 @@ Return<void> BiometricsFingerprint::onFingerUp() {
     if (mIsEnroll) {
         android::base::ReadFileToString(BRIGHTNESS_PATH, &CLOSE_HBM_MODE);
         android::base::WriteStringToFile(CLOSE_HBM_MODE, HBM_MODE_PATH);
+        android::base::WriteStringToFile(LOCAL_HBM_OFF, LOCAL_HBM_MODE_PATH);
     } else {
         android::base::WriteStringToFile(LOCAL_HBM_OFF, LOCAL_HBM_MODE_PATH);
     }
