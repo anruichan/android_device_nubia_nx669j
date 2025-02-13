@@ -324,6 +324,9 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor \
     android.hardware.secure_element@1.2.vendor
 
+PRODUCT_PACKAGES += \
+    libsqlite.vendor
+
 # Security
 BOOT_SECURITY_PATCH := 2023-10-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
