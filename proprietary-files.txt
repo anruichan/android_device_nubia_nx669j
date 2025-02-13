@@ -990,7 +990,6 @@ vendor/etc/media_profiles_vendor.xml
 vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy
 vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy
 vendor/etc/video_system_specs.json
-vendor/etc/vintf/manifest/c2_manifest_vendor.xml
 vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 vendor/lib/libqc2vppfilter.so
 vendor/lib/libqcodec2_base.so
