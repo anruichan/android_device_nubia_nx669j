@@ -122,7 +122,8 @@ PRODUCT_PACKAGES += \
 
 # Connection Security
 PRODUCT_PACKAGES += \
-    libjsoncpp.vendor
+    libjsoncpp.vendor \
+    libcurl.vendor
 
 # DRM
 PRODUCT_PACKAGES += \
