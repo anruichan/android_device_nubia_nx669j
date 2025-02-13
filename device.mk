@@ -207,6 +207,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti
 
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1.vendor
+
 # Initialization
 PRODUCT_PACKAGES += \
     fstab.default \
