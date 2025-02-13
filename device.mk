@@ -261,7 +261,8 @@ PRODUCT_PACKAGES += \
     libcodec2_vndk.vendor \
     libmm-omxcore \
     libstagefright_softomx.vendor \
-    libstagefrighthw
+    libstagefrighthw \
+    libstagefright_softomx_plugin.vendor
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
