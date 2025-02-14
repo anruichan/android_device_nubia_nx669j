@@ -1485,6 +1485,7 @@ vendor/etc/init/vendor.qti.tftp.rc
 vendor/bin/thermal-engine
 vendor/etc/init/init_thermal-engine.rc
 vendor/etc/thermal-engine.conf
+vendor/etc/thermal-enginer-nubia.conf
 vendor/lib/libthermalclient.so
 vendor/lib64/libthermalclient.so
 
