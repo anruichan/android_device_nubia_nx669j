@@ -150,7 +150,6 @@ PRODUCT_PACKAGES += \
     android.hardware.lights-service.qti \
     libdisplayconfig.qti \
     libdisplayconfig.system.qti \
-    lights.qcom \
     libmemutils \
     libqdMetaData \
     libqdMetaData.system \
