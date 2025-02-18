@@ -78,6 +78,9 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libvolumelistener
 
+PRODUCT_PACKAGES += \
+    libprocessgroup.vendor
+
 # Authsecret
 PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0.vendor
@@ -185,7 +188,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss.measurement_corrections@1.1.vendor \
     android.hardware.gnss.visibility_control@1.0.vendor \
     android.hardware.gnss@2.1.vendor \
-    android.hardware.power@1.2.vendor
+    android.hardware.power@1.2.vendor \
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
