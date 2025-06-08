@@ -8,8 +8,8 @@
 
 set -e
 
-DEVICE=sake
-VENDOR=asus
+DEVICE=nx669j
+VENDOR=nubia
 
 # Load extract utilities and do some sanity checks.
 MY_DIR="${BASH_SOURCE%/*}"
@@ -55,11 +55,6 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-
-    # Remove dependency on android.hidl.base@1.0 for WFD native library.
-    system_ext/lib/libwfdnative.so | system_ext/lib64/libwfdnative.so )
-        "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
-    ;;
 
     # Change soname for fingerprint.default.so.
     vendor/lib64/hw/fingerprint.lahaina.so)

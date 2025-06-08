@@ -1,1 +1,0 @@
-require board=lahaina|ASUS_I006D
