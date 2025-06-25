@@ -44,7 +44,8 @@ function lib_to_package_fixup_vendor_variants() {
     fi
 
     case "$1" in
-        com.qualcomm.qti.dpm.api@1.0 | \
+        android.hardware.camera.provider@2.4-service_64 | \
+            com.qualcomm.qti.dpm.api@1.0 | \
             libmmosal | \
             vendor.qti.diaghal@1.0 | \
             vendor.qti.imsrtpservice@3.0)
