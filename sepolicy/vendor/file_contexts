@@ -7,4 +7,4 @@
 /dev/goodix_fp                                                                                  u:object_r:fingerprint_device:s0
 
 # Vibrator
-/(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator\.service\.nx669j    u:object_r:hal_vibrator_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.nx669j    u:object_r:hal_vibrator_default_exec:s0
