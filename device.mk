@@ -215,6 +215,7 @@ PRODUCT_PACKAGES += \
     TelephonyResCommon \
     WifiResCommon \
     WifiResTarget \
+    NubiaAperture \
     NubiaFrameworks \
     NubiaLineageSDK \
     NubiaLineageSettings \
