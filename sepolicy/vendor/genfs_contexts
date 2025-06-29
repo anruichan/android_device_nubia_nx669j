@@ -1,3 +1,6 @@
 # Sensors
 genfscon sysfs /devices/virtual/light                                                u:object_r:vendor_sysfs_sensors:s0
 genfscon sysfs /devices/virtual/proximity                                            u:object_r:vendor_sysfs_sensors:s0
+
+# Vibrator
+genfscon sysfs /devices/platform/soc/88c000.i2c/i2c-7/7-005a                         u:object_r:sysfs_vibrator:s0
