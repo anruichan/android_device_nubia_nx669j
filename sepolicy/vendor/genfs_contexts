@@ -1,0 +1,3 @@
+# Sensors
+genfscon sysfs /devices/virtual/light                                                u:object_r:vendor_sysfs_sensors:s0
+genfscon sysfs /devices/virtual/proximity                                            u:object_r:vendor_sysfs_sensors:s0
